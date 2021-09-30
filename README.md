@@ -56,9 +56,10 @@ These files have been tested and used to generate a live ELK deployment on Azure
               enabled: yes
 -
 
----
- 
- - name: Installing and launch filebeat and metricbeats
+
+
+  ---
+- name: Installing and launch filebeat and metricbeats
   hosts: webservers
   become: yes
   tasks:
@@ -101,6 +102,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
 
+
 This document contains the following details:
 - Description of the Topology
 - Access Policies
@@ -115,10 +117,12 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-Using a loadbalancer is an easy way to protect the availability of the DVMA site by splitting the load between two servers (Web-1 / Web-2) in case one of the servers goes down or is overloaded with data. As well as the loadbalancer, there is a jumpbox which is used to access the servers. The jumpbox is public but can only be accessed by an ssh key.
+
+- Using a loadbalancer is an easy way to protect the availability of the DVMA site by splitting the load between two servers (Web-1 / Web-2) in case one of the servers goes down or is overloaded with data. As well as the loadbalancer, there is a jumpbox which is used to access the servers. The jumpbox is public but can only be accessed by an ssh key.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system logs.
-Filebeat is an extension that sends logs of data to Kibana, which is a tool to easily organize and show data.
+
+- Filebeat is an extension that sends logs of data to Kibana, which is a tool to easily organize and show data.
 Metricbeat is an extension that logs metric data for public servers (ie. metric data for docker containers)
 
 The configuration details of each machine may be found below.
@@ -136,7 +140,8 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-73.40.76.123
+
+- 73.40.76.123
 
 Machines within the network can only be accessed by the jumpbox.
 Access to the machines are only allowed via ssh connection s
@@ -157,11 +162,11 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 This allows the automation of multiple machines to be deployed and synced with the rest of the machines. Also it makes restarts and resets much easier to configure.
 
 The playbook implements the following tasks:
-Install Docker
-Update Cache
-Install Python / Module
-Increase memory size
-Download and Execute
+- Install Docker
+- Update Cache
+- Install Python / Module
+- Increase memory size
+- Download and Execute
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -170,30 +175,30 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 
-Web-1 (10.0.0.5)
+- Web-1 (10.0.0.5)
 
-Web-2 (10.0.0.7)
+- Web-2 (10.0.0.7)
 
 We have installed the following Beats on these machines:
 
-Filebeat
+- Filebeat
 
-Metricbeat
+- Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 
-Filebeat - logs syslog data (i.e - when the machines files are edited)
+- Filebeat - logs syslog data (i.e - when the machines files are edited)
 
-Metricbeat - logs metrics from docker machines (i.e - data sent to machine)
+- Metricbeat - logs metrics from docker machines (i.e - data sent to machine)
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 
-Copy the ELK file to /etc/ansible.
+- Copy the ELK file to /etc/ansible.
 
-Update the hosts file to include servers for playbook
+- Update the hosts file to include servers for playbook
 
-Run the playbook, and navigate to http://*YOUR-IP*:5601 to check that the installation worked as expected.
+- Run the playbook, and navigate to http://*YOUR-IP*:5601 to check that the installation worked as expected.
 
