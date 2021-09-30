@@ -4,7 +4,7 @@ Project 1 was an assignment given out in my Cyber Security class at University o
 
 The files in this repository were used to configure the network depicted below.
 
-
+![Diagram](https://github.com/RobDresch/Project-1-Robbie-Drescher/blob/main/Images/Copy%20of%20Diagram%20HW.jpg)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
