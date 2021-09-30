@@ -57,7 +57,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 -
 
 ---
-- name: Installing and launch filebeat and metricbeats
+ 
+ - name: Installing and launch filebeat and metricbeats
   hosts: webservers
   become: yes
   tasks:
@@ -168,17 +169,21 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
+
 Web-1 (10.0.0.5)
+
 Web-2 (10.0.0.7)
 
 We have installed the following Beats on these machines:
 
 Filebeat
+
 Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 
 Filebeat - logs syslog data (i.e - when the machines files are edited)
+
 Metricbeat - logs metrics from docker machines (i.e - data sent to machine)
 
 ### Using the Playbook
@@ -186,7 +191,9 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
- Copy the ELK file to /etc/ansible.
+Copy the ELK file to /etc/ansible.
+
 Update the hosts file to include servers for playbook
+
 Run the playbook, and navigate to http://*YOUR-IP*:5601 to check that the installation worked as expected.
 
